@@ -22,7 +22,7 @@ Assumptions:
 
 Terminal command to run this file from the root project folder:
 
-uv run python -m datafun.app_case
+uv run python -m datafun.app_case_experiment
 
 OBS:
   Don't edit this file - it should remain a working example.
@@ -125,6 +125,13 @@ def load_data() -> pd.DataFrame:
     """
     LOG.info(f"Loading dataset: {DATASET_NAME}")
     df: pd.DataFrame = pd.read_csv(f"data/raw/{DATASET_NAME}.csv")
+    
+    print("\nDataset Shape:")
+    print(df.shape)
+    
+    print("\nColumn Names:")
+    print(df.columns.tolist())
+    
     count_of_rows: int = df.shape[0]
     count_of_columns: int = df.shape[1]
     LOG.info(f"Loaded: {count_of_rows} rows, {count_of_columns} columns")
@@ -229,6 +236,12 @@ def check_quality(df: pd.DataFrame) -> None:
     """
     LOG.info("Missing values per column:")
     LOG.info(f"\n{df.isnull().sum()}")
+    missing_pct = (
+        df.isnull().sum() / len(df) * 100
+    ).sort_values(ascending=False)
+
+    print("\nMissing Values (%):")
+    print(missing_pct)
 
     LOG.info("Checking missing values per column")
     LOG.debug(f"\n{df.isna().sum().sort_values(ascending=False)}")
