@@ -38,11 +38,12 @@ from typing import Any, Final  # for type hinting
 from datafun_toolkit.logger import get_logger, log_header
 from matplotlib.axes import Axes
 import matplotlib.pyplot as plt
-sns.set_theme(style="whitegrid", palette="deep")
-plt.rcParams["figure.figsize"] = (10, 6)
 import numpy as np
 import pandas as pd
 import seaborn as sns
+
+sns.set_theme(style="whitegrid", palette="deep")
+plt.rcParams["figure.figsize"] = (10, 6)
 
 # Type hint for Axes object (basic plot type returned by Seaborn)
 # A seaborn plot is a set of axes. Set title, labels, etc. on the axes.
@@ -127,13 +128,13 @@ def load_data() -> pd.DataFrame:
     """
     LOG.info(f"Loading dataset: {DATASET_NAME}")
     df: pd.DataFrame = pd.read_csv(f"data/raw/{DATASET_NAME}.csv")
-    
+
     print("\nDataset Shape:")
     print(df.shape)
-    
+
     print("\nColumn Names:")
     print(df.columns.tolist())
-    
+
     count_of_rows: int = df.shape[0]
     count_of_columns: int = df.shape[1]
     LOG.info(f"Loaded: {count_of_rows} rows, {count_of_columns} columns")
@@ -238,9 +239,7 @@ def check_quality(df: pd.DataFrame) -> None:
     """
     LOG.info("Missing values per column:")
     LOG.info(f"\n{df.isnull().sum()}")
-    missing_pct = (
-        df.isnull().sum() / len(df) * 100
-    ).sort_values(ascending=False)
+    missing_pct = (df.isnull().sum() / len(df) * 100).sort_values(ascending=False)
 
     print("\nMissing Values (%):")
     print(missing_pct)
