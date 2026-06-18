@@ -191,7 +191,7 @@ Remove unnecessary instructional comments in your custom files.
 
 Update these figures to present interesting results from your custom project:
 
-![Correlation Heatmap](./docs/images/Figure_1.png)
+![Correlation Heatmap](./docs/images/Figure_6.png)
 
 ![C2 per Capital by Country](./docs/images/Figure_5.png)
 
