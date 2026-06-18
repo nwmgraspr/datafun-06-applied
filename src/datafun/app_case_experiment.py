@@ -526,9 +526,6 @@ def make_plots(df_clean: pd.DataFrame) -> None:
         x=SCATTER_X_COL,
         y=SCATTER_Y_COL,
         hue=GROUP_COL,
-        x="danceability",
-        y="popularity",
-        hue="popularity",
         palette="viridis",
         alpha=0.6
     )
