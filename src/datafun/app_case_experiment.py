@@ -38,6 +38,8 @@ from typing import Any, Final  # for type hinting
 from datafun_toolkit.logger import get_logger, log_header
 from matplotlib.axes import Axes
 import matplotlib.pyplot as plt
+sns.set_theme(style="whitegrid", palette="deep")
+plt.rcParams["figure.figsize"] = (10, 6)
 import numpy as np
 import pandas as pd
 import seaborn as sns
