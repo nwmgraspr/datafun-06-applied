@@ -193,9 +193,9 @@ Update these figures to present interesting results from your custom project:
 
 ![Correlation Heatmap](./docs/images/Figure_1.png)
 
-![Provide a Useful Caption](./docs/images/Figure_2.png)
+![Provide a Useful Caption](./docs/images/Figure_5.png)
 
-![Provide a Useful Caption](./docs/images/Figure_3.png)
+![Provide a Useful Caption](./docs/images/Figure_4.png)
 
 ## Project Documentation
 
