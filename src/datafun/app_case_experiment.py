@@ -43,7 +43,8 @@ import numpy as np
 import pandas as pd
 sns.set_theme(style="whitegrid", palette="deep")
 plt.rcParams["figure.figsize"] = (10, 6)
-
+sns.set_theme(style="whitegrid")
+sns.set_palette("viridis")
 
 # Type hint for Axes object (basic plot type returned by Seaborn)
 # A seaborn plot is a set of axes. Set title, labels, etc. on the axes.
@@ -525,6 +526,11 @@ def make_plots(df_clean: pd.DataFrame) -> None:
         x=SCATTER_X_COL,
         y=SCATTER_Y_COL,
         hue=GROUP_COL,
+        x="danceability",
+        y="popularity",
+        hue="popularity",
+        palette="viridis",
+        alpha=0.6
     )
     # Set axis labels using the Matplotlib Axes methods set_xlabel() and set_ylabel()
     scatter_plt.set_xlabel(SCATTER_X_LABEL)
