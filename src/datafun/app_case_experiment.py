@@ -39,11 +39,10 @@ from datafun_toolkit.logger import get_logger, log_header
 from matplotlib.axes import Axes
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_theme(style="whitegrid", palette="deep")
-plt.rcParams["figure.figsize"] = (10, 6)
 import numpy as np
 import pandas as pd
-import seaborn as sns
+sns.set_theme(style="whitegrid", palette="deep")
+plt.rcParams["figure.figsize"] = (10, 6)
 
 
 # Type hint for Axes object (basic plot type returned by Seaborn)
