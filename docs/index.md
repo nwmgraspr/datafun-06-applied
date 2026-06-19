@@ -53,16 +53,16 @@ The repository follows a professional analytics workflow that separates data, co
 
 The project follows five major phases:
 1.	Start and Run 
-o	Configure environment and dependencies. 
-o	Execute the sample project. 
+  - Configure environment and dependencies. 
+  - Execute the sample project. 
 2.	Change Authorship 
-o	Update project metadata and ownership information. 
+  - pdate project metadata and ownership information. 
 3.	Read and Understand 
-o	Review project structure and workflow. 
+  - Review project structure and workflow. 
 4.	Modify 
-o	Customize files and analysis components. 
+  - Customize files and analysis components. 
 5.	Apply 
-o	Conduct a complete EDA on a chosen dataset and document findings. 
+  - Conduct a complete EDA on a chosen dataset and document findings. 
 
 **Analysis Activities**
 
