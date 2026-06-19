@@ -191,11 +191,11 @@ Remove unnecessary instructional comments in your custom files.
 
 Update these figures to present interesting results from your custom project:
 
-![Correlation Heatmap](./docs/images/Figure_1.png)
+![Correlation Heatmap](./docs/images/Figure_a.png)
 
-![C2 per Capital by Country](./docs/images/Figure_2.png)
+![Release Year vs Duration (Minutes) by type](./docs/images/Figure_b.png)
 
-![GDP vs CO@ Emission (by Country)](./docs/images/Figure_3.png)
+![Duration](./docs/images/Figure_c.png)
 
 ## Project Documentation
 
