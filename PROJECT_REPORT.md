@@ -75,7 +75,3 @@ From the project root folder:
 
 ```bash
 uv run python -m datafun.app_case
----
-![Correlation Heatmap](docs/images/Figure_a.png)
-![Release Year vs Duration (Minutes) (by type)](docs/images/Figure_b.png)
-![Duration (Minutes) by type](docs/images/Figure_c.png)
