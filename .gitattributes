@@ -8,31 +8,19 @@
 # Windows, macOS, Linux, GitHub Actions, and environments.
 # CUSTOM: Add rules when new shared file types are introduced.
 # Git attributes: https://git-scm.com/docs/gitattributes
-
-
 # === Core defaults ===
-
 # WHY: Auto-detect text files and normalize text unless a later rule is more specific.
 * text=auto eol=lf
-
-
 # === Named root and metadata files ===
-
 # WHY: Important extensionless repo files are text and should use LF.
 CODEOWNERS  text eol=lf
 LICENSE     text eol=lf
-
-
 # === Operating-system files ===
-
 # WHY: OS metadata files are binary/noisy and should not be normalized.
 .DS_Store    binary
 Thumbs.db    binary
 desktop.ini  binary
-
-
 # === Markup and documentation ===
-
 # WHY: Documentation, web, and math markup use LF for stable cross-platform diffs.
 *.bib   text eol=lf
 *.cls   text eol=lf
@@ -44,10 +32,7 @@ desktop.ini  binary
 *.sty   text eol=lf
 *.tex   text eol=lf
 *.xml   text eol=lf
-
-
 # === Configuration and structured text ===
-
 # WHY: Config and structured text files should produce stable diffs.
 *.cfg     text eol=lf
 *.env     text eol=lf
@@ -60,10 +45,7 @@ desktop.ini  binary
 *.txt     text eol=lf
 *.yaml    text eol=lf
 *.yml     text eol=lf
-
-
 # === Programming languages and scripts ===
-
 # WHY: Source and script files use LF for CI, shells, containers, and tooling.
 *.bat   text eol=crlf
 *.c     text eol=lf
@@ -84,56 +66,37 @@ desktop.ini  binary
 *.sh    text eol=lf
 *.sql   text eol=lf
 *.ts    text eol=lf
-
-
 # === Formal, math, and proof languages ===
-
 # WHY: Lean source files are text; Lean build artifacts are binary.
 *.ilean  binary
 *.lean   text eol=lf
 *.olean  binary
 *.trace  binary
-
 # WHY: Lake build output should not be normalized if accidentally tracked.
 .lake/**  binary
-
-
 # === Notebooks ===
-
 # WHY: Jupyter notebooks can contain Python, R, Julia, and other kernels.
 *.ipynb  text eol=lf diff=jupyternotebook merge=jupyternotebook
-
-
 # === Text and tabular data ===
-
 # WHY: Small text data files benefit from readable diffs.
-*.csv  text eol=lf
+*.csv filter=lfs diff=lfs merge=lfs -text
 *.dat  text eol=lf
 *.psv  text eol=lf
 *.tsv  text eol=lf
-
-
 # === Databases ===
-
 # WHY: Database files are binary; text diffs are not meaningful.
 *.db       binary
 *.duckdb   binary
 *.sqlite   binary
 *.sqlite3  binary
-
-
 # === Columnar and analytical data ===
-
 # WHY: Columnar/analytical formats are binary; text diffs are not meaningful.
 *.arrow    binary
 *.avro     binary
 *.feather  binary
 *.orc      binary
 *.parquet  binary
-
-
 # === Office, BI, PDF, and compressed artifacts ===
-
 # WHY: Office, BI, PDF, and archive files are binary.
 *.7z    binary
 *.bz2   binary
@@ -151,17 +114,11 @@ desktop.ini  binary
 *.xlsx  binary
 *.xz    binary
 *.zip   binary
-
-
 # === Logs and generated runtime output ===
-
 # WHY: Logs are generated runtime evidence; avoid normalization churn.
 *.log        binary
 project.log  binary
-
-
 # === GitHub metadata and UI ===
-
 # WHY: Exclude documentation and tests from GitHub language statistics.
 docs/**   linguist-documentation
 tests/**  linguist-documentation

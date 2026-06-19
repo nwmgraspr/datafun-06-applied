@@ -1,7 +1,6 @@
-"""
-app_case.py - Netflix Titles EDA Project
+"""app_case.py - Project script (example).
 
-Author: Ralph Massaquoi
+Author: Denise Case
 Date: 2026-06
 
 Purpose:
@@ -15,21 +14,21 @@ Purpose:
     - creating charts with seaborn and matplotlib
 
 Data Source:
-- data/raw/netflix_titles.csv
-
-Dataset Description:
-- Netflix movies and TV shows available on the platform.
+- data/raw/owid-co2-data-subset.csv (from Our World in Data)
 
 Assumptions:
-- The dataset contains columns such as:
-  show_id, type, title, director, cast,
-  country, date_added, release_year,
-  rating, duration, listed_in
+- The data contains columns like:
+  country, year, co2, co2_per_capita, population, gdp
 
 Terminal command to run this file from the root project folder:
 
 uv run python -m datafun.app_case
+
+OBS:
+  Don't edit this file - it should remain a working example.
+  Copy it, rename it, and modify your copy.
 """
+
 
 # === Section 1a. DECLARE IMPORTS (BRING IN FREE CODE) ===
 
@@ -60,7 +59,7 @@ log_header(LOG, "P06")
 # Inspect or explore the dataset to determine columns needed for analysis.
 
 # CUSTOM: Data set name
-DATASET_NAME: Final[str] = "netflix_titles"
+DATASET_NAME: Final[str] = "owid-co2-data-subset"
 
 # ==========================================================
 # ANALYST CHOICE:
@@ -70,34 +69,37 @@ DATASET_NAME: Final[str] = "netflix_titles"
 
 # CUSTOM: Grouping column (chose one categorical/non-numeric variable)
 
-GROUP_COL: Final[str] = "type"
+GROUP_COL: Final[str] = "country"
 
 # CUSTOM: Numeric columns to analyze (chose 4-5 numeric variables)
 
 SELECTED_NUMERIC_COLS: Final[list[str]] = [
-    "release_year",
-    "duration_minutes",
-    "year_added",
+    "year",
+    "co2",
+    "co2_per_capita",
+    "population",
+    "gdp",
 ]
 
 # CUSTOM: Choose one numeric column for a manual statistics example.
 
-EXAMPLE_NUMERIC_COL: Final[str] = "duration_minutes"
+EXAMPLE_NUMERIC_COL: Final[str] = "co2_per_capita"
 
 # CUSTOM: Choose a few numeric columns to check for correlations and plot.
 # Look for strong correlations in the descriptive stats section to guide this choice.
 # For example, if co2_per_capita and gdp show strong correlation, plot those
 
-SCATTER_X_COL: Final[str] = "release_year"
-SCATTER_Y_COL: Final[str] = "duration_minutes"
+SCATTER_X_COL: Final[str] = "gdp"
+SCATTER_Y_COL: Final[str] = "co2"
 
-BOX_Y_COL: Final[str] = "duration_minutes"
+BOX_Y_COL: Final[str] = "co2_per_capita"
+
 # CUSTOM: Assign readable labels for the charted variables.
 
-SCATTER_X_LABEL: Final[str] = "Release Year"
-SCATTER_Y_LABEL: Final[str] = "Duration (Minutes)"
+SCATTER_X_LABEL: Final[str] = "GDP"
+SCATTER_Y_LABEL: Final[str] = "CO2 emissions"
 
-BOX_Y_LABEL: Final[str] = "Duration (Minutes)"
+BOX_Y_LABEL: Final[str] = "CO2 per capita"
 
 # === Section 1d. Pandas Configuration for Display ===
 
@@ -110,19 +112,21 @@ pd.set_option("display.width", 120)
 
 
 def load_data() -> pd.DataFrame:
+    """Load a dataset into a DataFrame.
+
+    This function loads a dataset from a CSV file located in the
+    `data/raw` directory. The dataset name is specified by the
+    `DATASET_NAME` constant.
+
+    Arguments: None
+
+    Returns:
+        pd.DataFrame: The loaded dataset.
+    """
     LOG.info(f"Loading dataset: {DATASET_NAME}")
-
     df: pd.DataFrame = pd.read_csv(f"data/raw/{DATASET_NAME}.csv")
-
-    df["duration_minutes"] = df["duration"].str.extract(r"(\d+)").astype(float)
-
-    df["date_added"] = pd.to_datetime(df["date_added"], errors="coerce")
-
-    df["year_added"] = df["date_added"].dt.year
-
     count_of_rows: int = df.shape[0]
     count_of_columns: int = df.shape[1]
-
     LOG.info(f"Loaded: {count_of_rows} rows, {count_of_columns} columns")
 
     return df
@@ -449,8 +453,7 @@ Interpretation:
  - Values close to 0 (white) = little or no linear relationship
  - The diagonal is always 1 (each variable correlates perfectly with itself)
 
-From this heatmap, we can see how release year,
-duration, and year added are related.
+From this heatmap, we can see that flipper_length_mm and body_mass_g show strong positive correlation (~0.87).
 """)
 
     return correlation_matrix

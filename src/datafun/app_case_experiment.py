@@ -528,8 +528,6 @@ def make_plots(df_clean: pd.DataFrame) -> None:
         x=SCATTER_X_COL,
         y=SCATTER_Y_COL,
         hue=GROUP_COL,
-        palette="viridis",
-        alpha=0.6,
     )
     # Set axis labels using the Matplotlib Axes methods set_xlabel() and set_ylabel()
     scatter_plt.set_xlabel(SCATTER_X_LABEL)
@@ -558,7 +556,11 @@ def make_plots(df_clean: pd.DataFrame) -> None:
 
     # Use a boxplot() to visualize the distribution of a numeric variable across groups
     box_plt: Axes = sns.boxplot(
-        data=df_clean, x=GROUP_COL, y=BOX_Y_COL, palette="viridis", alpha=0.6
+        data=df_clean,
+        x=GROUP_COL,
+        y=BOX_Y_COL,
+        palette="viridis",
+        legend=False,
     )
     # Set readable labels and title for the box plot
     box_plt.set_xlabel(GROUP_COL)
