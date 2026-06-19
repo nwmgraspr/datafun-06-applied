@@ -1,6 +1,6 @@
-"""app_case.py - Project script (example).
+"""app_taxi_experiment.py - Project script (example).
 
-Author: Denise Case
+Author: Ralph Massaquoi
 Date: 2026-06
 
 Purpose:
