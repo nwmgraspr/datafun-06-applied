@@ -1,18 +1,19 @@
 # Netflix Titles EDA Project
 
 ## Author
-Ralph Massaquoi
+Ralph Massaquoi  
 Date: June 2026
 
 ---
 
-## Overview
+##  Overview
 
-This project performs exploratory data analysis (EDA) on the Netflix Titles dataset using Python. The goal is to clean, analyze, and visualize Netflix movies and TV shows to discover patterns and insights.
+This project performs exploratory data analysis (EDA) on the Netflix Titles dataset using Python. 
+The goal is to clean, analyze, and visualize Netflix movies and TV shows to discover patterns and insights.
 
 ---
 
-## Dataset
+##  Dataset
 
 - Source: `data/raw/netflix_titles.csv`
 - Contains information about Netflix movies and TV shows including:
@@ -60,7 +61,7 @@ This script (`app_case.py`) performs:
 
 ---
 
-##  Key Insights
+## Key Insights
 
 - Netflix content trends over time
 - Differences between Movies and TV Shows
@@ -69,13 +70,9 @@ This script (`app_case.py`) performs:
 
 ---
 
-##  How to Run
+## How to Run
 
 From the project root folder:
 
 ```bash
 uv run python -m datafun.app_case
-
-![Correlation Heatmap](docs/images/Figure_a.png)
-![Release Year vs Duration (Minutes) (by type)](docs/images/Figure_b.png)
-![Duration (Minutes) by type](docs/images/Figure_c.png)
