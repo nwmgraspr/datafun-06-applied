@@ -84,6 +84,82 @@ The EDA process includes:
 •	Narrative report in docs/index.md 
 •	Recommendations for future analysis or predictive modeling 
 
+## Custom Project
+
+### Basis
+The basis of this project is Exploratory Data Analysis (EDA) on a Netflix content dataset. In other words, the project is not building a predictive model or testing a hypothesis. Instead, it focuses on understanding the data, identifying patterns, and summarizing characteristics of Netflix movies and TV shows.
+
+**Describe the dataset, input, source material, example, or workflow you started with**
+
+This project uses the Netflix Titles dataset to perform Exploratory DataAanalysis. The workflow includes loading and cleaning the data, examining data quality, generating descriptive statistics, analyzing correlations among release year, duration, and year added, and visualizing patterns through heatmaps, scatter plots, and box plots. The goal is to understand trends and differences between Netflix movies and TV shows and identify areas for further analysis. See details below:
+1.	Data Collection 
+    a. Uses the Netflix Titles dataset (netflix_titles.csv). 
+    b.	Contains metadata about movies and TV shows available on Netflix.
+2. Data Input
+   The primary input is: data/raw/netflix_titles.csv
+   The dataset is loaded into a Pandas DataFrame 
+3. Data Source
+   The source material is Netflix catalog metadata describing content available on the platform, including release years, ratings, duration, and content type (Movie vs TV Show). 
+4. Workflows
+   The EDA workflow follows these steps:
+   a. Load Data and read the Netflix CSV file.
+   b. Inspect Structure
+   c. Data Dictionary & Quality Checks
+   d. Create a Clean Dataset
+   e. Descriptive Statistics
+   f. Correlation Analysis
+   g. Visualizations 
+
+
+### Phase 4 Modifications
+Describe your small technical modification, why you chose it, and how you verified it worked.
+In the phase 4 modifications, I was able to improve on the quality of the chart. I chose this part because I am more of a visual learner and so I am always interested in visual presentation.
+This code configures the default appearance of plots created with Seaborn and Matplotlib:
+sns.set_theme(style="whitegrid", palette="deep") sets a Seaborn theme with a white background and gridlines, using the "deep" color palette.
+plt.rcParams["figure.figsize"] = (10, 6) sets the default figure size to 10 inches wide by 6 inches tall.
+sns.set_theme(style="whitegrid") applies the white-grid theme again.
+sns.set_palette("viridis") changes the default color palette to "viridis".
+The final two lines repeat the earlier settings, resetting the palette back to "deep" and the figure size to (10, 6).
+
+### Phase 5 Custom Project
+Describe your custom project, 
+what you changed from the example, 
+what results you produced, and what you learned.
+Include in your reflection an assessment of 
+how much you exercised the skills and techniques covered 
+and what problems you could apply them to in the future.
+
+In this custom project, I have changed the dataset from "owid-co2-data-subset" to "netflix_titles". However, the I maintained the samw file name "app_case" See more details below:
+
+**Dataset Change Summary**
+
+The analysis shifted from the OWID CO₂ Data Subset to the Netflix Titles dataset, resulting in several key changes:
+
+Subject Matter
+
+OWID CO₂ Data Subset: Focused on environmental and emissions data by country and year.
+Netflix Titles: Focuses on entertainment content available on Netflix, including movies and TV shows.
+
+Data Structure
+
+OWID CO₂: Primarily numerical and time-series data with variables such as emissions, population, and energy usage.
+Netflix Titles: Contains categorical and text-based attributes such as title, type, director, cast, country, rating, genre, and release year.
+
+Analysis Goals
+
+OWID CO₂: Examined trends in carbon emissions, environmental indicators, and comparisons across countries over time.
+Netflix Titles: Explores content distribution, genre popularity, ratings, release trends, and differences between movies and TV shows.
+
+Visualization Changes
+
+OWID CO₂: Used line charts, scatter plots, and trend analyses to study changes over time.
+Netflix Titles: Relies more on bar charts, count plots, histograms, and categorical comparisons to analyze content characteristics.
+
+Data Preparation
+
+OWID CO₂: Required handling of missing numerical values and filtering by countries or years.
+Netflix Titles: Often requires cleaning text fields, handling missing director/cast information, and processing categorical variables.
+
 **Example Output**
 
 A completed project produces:
@@ -93,8 +169,3 @@ A completed project produces:
 •	Visual insights from charts 
 •	Recommendations for further investigation 
 •	Execution logs confirming successful completion of the workflow 
-
-**Conclusion**
-
-The datafun-06-applied project demonstrates a professional data analytics workflow using Python. It emphasizes reproducible analysis, code quality, documentation, testing, and effective communication of insights through exploratory data analysis. The project serves as both a learning exercise and a template for future data science projects
-
